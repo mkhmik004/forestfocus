@@ -1,0 +1,70 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tree" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Forest silhouette -->
+  <g transform="translate(0, 400)">
+    <!-- Multiple trees -->
+    <g transform="translate(100, 0)">
+      <rect x="48" y="180" width="24" height="50" fill="#8b4513" rx="4"/>
+      <path d="M60 180 L20 120 L100 120 Z" fill="url(#tree)"/>
+      <path d="M60 150 L10 80 L110 80 Z" fill="url(#tree)"/>
+      <path d="M60 120 L0 40 L120 40 Z" fill="url(#tree)"/>
+    </g>
+    
+    <g transform="translate(300, 20)">
+      <rect x="38" y="160" width="20" height="40" fill="#8b4513" rx="3"/>
+      <path d="M48 160 L15 110 L81 110 Z" fill="url(#tree)"/>
+      <path d="M48 135 L8 75 L88 75 Z" fill="url(#tree)"/>
+      <path d="M48 110 L0 45 L96 45 Z" fill="url(#tree)"/>
+    </g>
+    
+    <g transform="translate(500, -10)">
+      <rect x="45" y="190" width="26" height="55" fill="#8b4513" rx="4"/>
+      <path d="M58 190 L18 125 L98 125 Z" fill="url(#tree)"/>
+      <path d="M58 160 L8 85 L108 85 Z" fill="url(#tree)"/>
+      <path d="M58 130 L-2 45 L118 45 Z" fill="url(#tree)"/>
+    </g>
+    
+    <g transform="translate(750, 30)">
+      <rect x="42" y="170" width="22" height="45" fill="#8b4513" rx="3"/>
+      <path d="M53 170 L18 115 L88 115 Z" fill="url(#tree)"/>
+      <path d="M53 145 L10 80 L96 80 Z" fill="url(#tree)"/>
+      <path d="M53 120 L2 50 L104 50 Z" fill="url(#tree)"/>
+    </g>
+    
+    <g transform="translate(950, 10)">
+      <rect x="40" y="175" width="24" height="48" fill="#8b4513" rx="4"/>
+      <path d="M52 175 L16 120 L88 120 Z" fill="url(#tree)"/>
+      <path d="M52 150 L8 85 L96 85 Z" fill="url(#tree)"/>
+      <path d="M52 125 L0 55 L104 55 Z" fill="url(#tree)"/>
+    </g>
+  </g>
+  
+  <!-- Floating particles -->
+  <g opacity="0.6">
+    <circle cx="200" cy="150" r="6" fill="#ffffff"/>
+    <circle cx="350" cy="200" r="4" fill="#ffffff"/>
+    <circle cx="600" cy="120" r="5" fill="#ffffff"/>
+    <circle cx="800" cy="180" r="3" fill="#ffffff"/>
+    <circle cx="1000" cy="140" r="4" fill="#ffffff"/>
+    <circle cx="150" cy="250" r="3" fill="#ffffff"/>
+    <circle cx="450" cy="100" r="4" fill="#ffffff"/>
+    <circle cx="750" cy="80" r="3" fill="#ffffff"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="200" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="bold">ForestFocus</text>
+  <text x="600" y="250" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="32" opacity="0.9">Focus. Grow. Impact.</text>
+</svg>
