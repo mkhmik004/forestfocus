@@ -63,7 +63,7 @@ export default function App() {
   const [showCommunityForest, setShowCommunityForest] = useState(false);
 
   const TreeIcon = () => (
-    <svg className="w-full h-full text-green-500" fill="currentColor" viewBox="0 0 24 24">
+    <svg className="w-16 h-16 text-green-500" fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 2L8 8h3v12h2V8h3l-4-6z" />
       <circle cx="12" cy="18" r="3" fill="currentColor" opacity="0.7" />
     </svg>
@@ -77,7 +77,7 @@ export default function App() {
 
   // Load user data from localStorage on mount
   useEffect(() => {
-    if (typeof window !== 'undefined' && isConnected && address) {
+    if (isConnected && address) {
       const savedStats = localStorage.getItem(`forestfocus-stats-${address}`);
       const savedForest = localStorage.getItem(`forestfocus-forest-${address}`);
       
@@ -97,13 +97,13 @@ export default function App() {
 
   // Save user data to localStorage whenever it changes
   useEffect(() => {
-    if (typeof window !== 'undefined' && isConnected && address) {
+    if (isConnected && address) {
       localStorage.setItem(`forestfocus-stats-${address}`, JSON.stringify(userStats));
     }
   }, [userStats, isConnected, address]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && isConnected && address) {
+    if (isConnected && address) {
       localStorage.setItem(`forestfocus-forest-${address}`, JSON.stringify(personalForest));
     }
   }, [personalForest, isConnected, address]);
@@ -116,16 +116,14 @@ export default function App() {
     
     // Check for streak bonus (every 3 consecutive days)
     const today = new Date().toDateString();
-    const lastSessionDate = typeof window !== 'undefined' ? localStorage.getItem('lastSessionDate') : null;
+    const lastSessionDate = localStorage.getItem('lastSessionDate');
     if (lastSessionDate !== today) {
       const streak = userStats.currentStreak + 1;
       if (streak % 3 === 0) {
         leafCoinRef.current?.addCoins(5, `${streak}-Day Streak Bonus`);
       }
-      setUserStats((prev: UserStats) => ({ ...prev, currentStreak: streak }));
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('lastSessionDate', today);
-      }
+      setUserStats(prev => ({ ...prev, currentStreak: streak }));
+      localStorage.setItem('lastSessionDate', today);
     }
     
     // Check for daily goal (4 sessions)
@@ -170,11 +168,11 @@ export default function App() {
     };
     
     setPersonalForest(prev => [...prev, newTree]);
-    setUserStats((prev: UserStats) => ({ ...prev, treesPlanted: prev.treesPlanted + 1 }));
+    setUserStats(prev => ({ ...prev, treesPlanted: prev.treesPlanted + 1 }));
   };
 
   const growTrees = () => {
-    setPersonalForest((prev: Tree[]) => prev.map((tree: Tree) => {
+    setPersonalForest(prev => prev.map(tree => {
       const newCompletedSessions = tree.completedSessions + 1;
       let newStage = tree.stage;
       const previousStage = tree.stage;
@@ -207,7 +205,7 @@ export default function App() {
   };
   
   const handleCoinsUpdate = (newCoins: number) => {
-    setUserStats((prev: UserStats) => ({ ...prev, leafCoins: newCoins }));
+    setUserStats(prev => ({ ...prev, leafCoins: newCoins }));
   };
 
   if (!isConnected) {
@@ -243,52 +241,50 @@ export default function App() {
         </header>
 
         {/* Hero Section */}
-        <main className="flex-grow flex items-center justify-center px-4 py-8">
+        <main className="flex-grow flex items-center justify-center px-4">
           <div className="max-w-4xl w-full text-center">
-            <div className="mb-6 sm:mb-8 flex justify-center">
-              <div className="w-12 h-12 sm:w-16 sm:h-16">
-                <TreeIcon />
-              </div>
+            <div className="mb-8">
+              <TreeIcon />
             </div>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 dark:text-white mb-6">
               Forest<span className="text-green-600">Focus</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
               Gamify your productivity. Grow virtual trees. Earn LeafCoin. 
               Build your forest while staying focused.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 max-w-3xl mx-auto">
-              <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg">
-                <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🍅</div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2">Focus Sessions</h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Start Pomodoro sessions and stay focused on your tasks</p>
+            <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                <div className="text-3xl mb-4">🍅</div>
+                <h3 className="text-lg font-semibold mb-2">Focus Sessions</h3>
+                <p className="text-gray-600 dark:text-gray-400">Start Pomodoro sessions and stay focused on your tasks</p>
               </div>
               
-              <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg">
-                <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">🌱</div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2">Grow Trees</h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Watch your virtual trees grow from seedlings to full trees</p>
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                <div className="text-3xl mb-4">🌱</div>
+                <h3 className="text-lg font-semibold mb-2">Grow Trees</h3>
+                <p className="text-gray-600 dark:text-gray-400">Watch your virtual trees grow from seedlings to full trees</p>
               </div>
               
-              <div className="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg sm:col-span-2 md:col-span-1">
-                <div className="flex items-center justify-center mb-3 sm:mb-4">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                <div className="flex items-center justify-center mb-4">
                   <LeafIcon />
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2">Earn LeafCoin</h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">Get rewarded with LeafCoin for completed sessions</p>
+                <h3 className="text-lg font-semibold mb-2">Earn LeafCoin</h3>
+                <p className="text-gray-600 dark:text-gray-400">Get rewarded with LeafCoin for completed sessions</p>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl max-w-sm sm:max-w-md mx-auto">
-              <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ready to Start Growing?</h2>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 sm:mb-6">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl max-w-md mx-auto">
+              <h2 className="text-2xl font-bold mb-4">Ready to Start Growing?</h2>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Connect your wallet to begin your productivity journey
               </p>
               <Wallet>
-                <ConnectWallet className="w-full bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-colors">
+                <ConnectWallet className="w-full bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors">
                   Connect Wallet & Start
                 </ConnectWallet>
               </Wallet>
@@ -310,32 +306,30 @@ export default function App() {
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center py-4 space-y-4 sm:space-y-0">
+          <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 sm:w-16 sm:h-16">
-                <TreeIcon />
-              </div>
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
+              <TreeIcon />
+              <h1 className="text-2xl font-bold text-gray-800 dark:text-white">
                 Forest<span className="text-green-600">Focus</span>
               </h1>
             </div>
             
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-              <div className="flex items-center space-x-2 bg-green-100 dark:bg-green-800 px-3 py-2 rounded-full">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 bg-green-100 dark:bg-green-800 px-4 py-2 rounded-full">
                  <LeafIcon />
-                 <span className="font-semibold text-sm sm:text-base">{userStats.leafCoins} LeafCoin</span>
+                 <span className="font-semibold">{userStats.leafCoins} LeafCoin</span>
                </div>
               
               <Wallet>
-                <ConnectWallet className="w-full sm:w-auto">
-                  <Avatar className="h-6 w-6 sm:h-8 sm:w-8" />
-                  <Name className="text-sm sm:text-base truncate max-w-[120px] sm:max-w-none" />
+                <ConnectWallet>
+                  <Avatar className="h-8 w-8" />
+                  <Name />
                 </ConnectWallet>
                 <WalletDropdown>
                   <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
                     <Avatar />
                     <Name />
-                    <Address className="text-xs sm:text-sm" />
+                    <Address />
                     <EthBalance />
                   </Identity>
                   <WalletDropdownLink
@@ -355,10 +349,10 @@ export default function App() {
       </header>
 
       {/* Main Dashboard */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Focus Timer and LeafCoin System */}
-           <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+           <div className="lg:col-span-2 space-y-6">
              <PomodoroTimer 
                onSessionComplete={handleSessionComplete}
                onSessionStart={handleSessionStart}
@@ -371,13 +365,13 @@ export default function App() {
            </div>
 
           {/* Personal Forest */}
-          <div className="space-y-4 sm:space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6">
-               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 space-y-2 sm:space-y-0">
-                 <h3 className="text-lg sm:text-xl font-bold">🌳 Personal Forest</h3>
+          <div>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 mb-6">
+               <div className="flex items-center justify-between mb-4">
+                 <h3 className="text-xl font-bold">🌳 Personal Forest</h3>
                  <button
                    onClick={() => setShowCommunityForest(!showCommunityForest)}
-                   className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium whitespace-nowrap"
+                   className="text-sm text-blue-600 hover:text-blue-700 font-medium"
                  >
                    {showCommunityForest ? '← Back to Personal' : 'View Community →'}
                  </button>
@@ -396,7 +390,7 @@ export default function App() {
                )}
                
                {/* Farcaster Share */}
-               <div className="mt-4 sm:mt-6">
+               <div className="mt-6">
                  <FarcasterShare 
                    userStats={userStats}
                    personalForest={personalForest}
@@ -407,8 +401,10 @@ export default function App() {
             <PersonalForestDashboard 
               trees={personalForest}
               userStats={userStats}
-              className=""
+              className="mb-6"
             />
+            
+
           </div>
         </div>
       </main>

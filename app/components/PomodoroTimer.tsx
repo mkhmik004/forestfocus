@@ -22,15 +22,15 @@ export default function PomodoroTimer({ onSessionComplete, onSessionStart }: Pom
   const [sessionType, setSessionType] = useState<SessionType>('focus');
   const [sessionsCompleted, setSessionsCompleted] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<{ play: () => void } | null>(null);
 
   // Initialize audio for completion sound
   useEffect(() => {
     // Create a simple beep sound using Web Audio API
     const createBeepSound = (): void => {
       try {
-        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-          const audioContext = new AudioContextClass();
+        const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof window.AudioContext }).webkitAudioContext;
+        const audioContext = new AudioContextClass();
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
         
@@ -51,7 +51,7 @@ export default function PomodoroTimer({ onSessionComplete, onSessionStart }: Pom
       }
     };
     
-    audioRef.current = { play: createBeepSound } as HTMLAudioElement;
+    audioRef.current = { play: createBeepSound };
   }, []);
 
   const handleSessionComplete = useCallback(() => {
@@ -59,30 +59,32 @@ export default function PomodoroTimer({ onSessionComplete, onSessionStart }: Pom
     
     // Play completion sound
     if (audioRef.current) {
-      audioRef.current.play().catch(() => {
-        // Ignore audio play errors (user interaction required)
-      });
+      audioRef.current.play();
     }
 
     if (sessionType === 'focus') {
       setSessionsCompleted(prev => prev + 1);
       onSessionComplete();
       
-      // Auto-start break after focus session
-      setTimeout(() => {
-        const nextBreakType = sessionsCompleted % 4 === 3 ? 'longBreak' : 'shortBreak';
-        setSessionType(nextBreakType);
-        setTimeLeft(SESSION_DURATIONS[nextBreakType]);
-        setTimerState('idle');
-      }, 2000);
+      // Auto-switch to break after focus session
+      const newSessionsCompleted = sessionsCompleted + 1;
+      if (newSessionsCompleted % 4 === 0) {
+        setSessionType('longBreak');
+        setTimeLeft(SESSION_DURATIONS.longBreak);
+      } else {
+        setSessionType('shortBreak');
+        setTimeLeft(SESSION_DURATIONS.shortBreak);
+      }
     } else {
-      // After break, go back to focus
-      setTimeout(() => {
-        setSessionType('focus');
-        setTimeLeft(SESSION_DURATIONS.focus);
-        setTimerState('idle');
-      }, 2000);
+      // After break, switch back to focus
+      setSessionType('focus');
+      setTimeLeft(SESSION_DURATIONS.focus);
     }
+
+    // Auto-start next session after 3 seconds
+    setTimeout(() => {
+      setTimerState('idle');
+    }, 3000);
   }, [sessionType, sessionsCompleted, onSessionComplete]);
 
   useEffect(() => {
