@@ -1,3 +1,8 @@
+
+[🌳 Visit the live app: forestfocus-umber.vercel.app](https://forestfocus-umber.vercel.app)
+
+*Farcaster casting link coming soon!*
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-onchain`]().
 
 
