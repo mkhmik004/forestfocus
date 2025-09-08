@@ -12,35 +12,35 @@ function withValidProperties(
 }
 
 export async function GET() {
-  const URL = process.env.NEXT_PUBLIC_URL || "https://forestfocus-4fno6yles-markbetterdevs-projects.vercel.app";
-
-  return Response.json({
+  const manifest = {
+    frame: {
+      name: "ForestFocus",
+      version: "1",
+      iconUrl: `https://forestfocus-umber.vercel.app/icon.png`,
+      homeUrl: `https://forestfocus-umber.vercel.app`,
+      imageUrl: `https://forestfocus-umber.vercel.app/image.png`,
+      splashImageUrl: `https://forestfocus-umber.vercel.app/splash.png`,
+      splashBackgroundColor: "#10b981",
+      webhookUrl: `https://forestfocus-umber.vercel.app/api/webhook`,
+      subtitle: "ForestFocus",
+      description: "ForestFocus is a productivity mini app on Base that turns your focus sessions into a growing digital forest. Each time you complete a study or work session, you earn LeafCoin and your trees mature, from seedlings to full-grown trees. You can grow your own forest, contribute to a shared community grove, and share your progress directly on Farcaster.",
+      primaryCategory: "productivity",
+      screenshotUrls: [`https://forestfocus-umber.vercel.app/screenshot1.png`],
+      heroImageUrl: `https://forestfocus-umber.vercel.app/hero.png`,
+      tags: ["productivity", "focus", "blockchain", "base"],
+      tagline: "Grow your productivity forest",
+      buttonTitle: "Open mini app",
+      ogTitle: "ForestFocus – Productivity Forest",
+      ogDescription: "Turn your focus sessions into a thriving digital forest on Base blockchain",
+      ogImageUrl: `https://forestfocus-umber.vercel.app/og-image.png`,
+      castShareUrl: "https://warpcast.com/~/compose?text=Check+out+ForestFocus+%F0%9F%8C%B1+Turn+your+focus+into+a+digital+forest%21"
+    },
     accountAssociation: {
       header: process.env.FARCASTER_HEADER,
       payload: process.env.FARCASTER_PAYLOAD,
       signature: process.env.FARCASTER_SIGNATURE,
-    },
-    frame: withValidProperties({
-      version: "1",
-      name: "ForestFocus",
-      subtitle: "Productivity & Environmental Impact",
-      description: "A gamified Pomodoro timer that plants virtual trees while you focus, combining productivity with environmental awareness on Base blockchain.",
-      screenshotUrls: [],
-      iconUrl: `${URL}/icon.svg`,
-      splashImageUrl: `${URL}/splash.svg`,
-      splashBackgroundColor: "#10b981",
-      homeUrl: URL,
-      webhookUrl: `${URL}/api/webhook`,
-      primaryCategory: "productivity",
-      tags: ["productivity", "environment", "gamification", "pomodoro"],
-      heroImageUrl: `${URL}/hero.svg`,
-      tagline: "Focus. Grow. Impact.",
-      ogTitle: "ForestFocus - Productive Focus with Environmental Impact",
-      ogDescription: "Plant virtual trees while staying focused with our gamified Pomodoro timer. Turn your productivity into environmental awareness.",
-      ogImageUrl: `${URL}/hero.svg`,
-    }),
-    baseBuilder: {
-      allowedAddresses: ["0xcF5902a5D2a671849f0a44C87BF58AafF51FFE9F"]
     }
-  });
+  };
+
+  return Response.json(manifest);
 }

@@ -1,0 +1,70 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  
+  <!-- Background pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main content container -->
+  <rect x="100" y="100" width="1000" height="430" rx="20" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Title -->
+  <text x="600" y="200" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="64" font-weight="bold">ForestFocus</text>
+  <text x="600" y="240" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="24">Turn focus into a thriving digital forest</text>
+  
+  <!-- Forest visualization -->
+  <g transform="translate(600, 350)">
+    <!-- Main tree -->
+    <path d="M0 -60C0 -60 35 -80 35 -40C35 0 0 20 0 20C0 20 -35 0 -35 -40C-35 -80 0 -60 0 -60Z" fill="#22c55e"/>
+    <rect x="-5" y="20" width="10" height="50" fill="#8b5cf6"/>
+    
+    <!-- Side trees -->
+    <g transform="translate(-120, 10)">
+      <path d="M0 -40C0 -40 25 -55 25 -25C25 5 0 20 0 20C0 20 -25 5 -25 -25C-25 -55 0 -40 0 -40Z" fill="#16a34a"/>
+      <rect x="-4" y="20" width="8" height="40" fill="#8b5cf6"/>
+    </g>
+    
+    <g transform="translate(120, 0)">
+      <path d="M0 -50C0 -50 30 -65 30 -35C30 -5 0 10 0 10C0 10 -30 -5 -30 -35C-30 -65 0 -50 0 -50Z" fill="#15803d"/>
+      <rect x="-4" y="10" width="8" height="45" fill="#8b5cf6"/>
+    </g>
+    
+    <!-- Small seedlings -->
+    <g transform="translate(-200, 40)">
+      <path d="M0 -20C0 -20 12 -28 12 -12C12 4 0 12 0 12C0 12 -12 4 -12 -12C-12 -28 0 -20 0 -20Z" fill="#22c55e" opacity="0.7"/>
+      <rect x="-2" y="12" width="4" height="20" fill="#8b5cf6" opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(200, 30)">
+      <path d="M0 -25C0 -25 15 -33 15 -17C15 -1 0 7 0 7C0 7 -15 -1 -15 -17C-15 -33 0 -25 0 -25Z" fill="#16a34a" opacity="0.6"/>
+      <rect x="-2" y="7" width="4" height="25" fill="#8b5cf6" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Feature icons -->
+  <g transform="translate(300, 320)">
+    <circle cx="0" cy="0" r="30" fill="#ef4444"/>
+    <text x="0" y="8" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">25:00</text>
+    <text x="0" y="50" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Focus Timer</text>
+  </g>
+  
+  <g transform="translate(900, 320)">
+    <circle cx="0" cy="0" r="30" fill="#fbbf24"/>
+    <text x="0" y="8" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">LC</text>
+    <text x="0" y="50" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12">LeafCoin</text>
+  </g>
+  
+  <!-- Bottom text -->
+  <text x="600" y="480" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="18">🌱 Grow • 🍅 Focus • 💰 Earn • 🌍 Impact</text>
+  <text x="600" y="510" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Built on Base Blockchain</text>
+  
+  <!-- Decorative sparkles -->
+  <circle cx="200" cy="180" r="3" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="1000" cy="200" r="4" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="150" cy="450" r="2" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="1050" cy="420" r="3" fill="#fbbf24" opacity="0.9"/>
+</svg>

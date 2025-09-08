@@ -1,0 +1,35 @@
+<svg width="800" height="533" viewBox="0 0 800 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="533" fill="#0f172a"/>
+  <rect x="50" y="50" width="700" height="433" rx="24" fill="#1e293b"/>
+  <text x="400" y="120" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="48" font-weight="bold">ForestFocus</text>
+  <text x="400" y="160" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="20">Grow your productivity forest</text>
+  
+  <!-- Trees -->
+  <g transform="translate(200, 200)">
+    <path d="M50 80C50 80 80 60 80 100C80 140 50 160 50 160C50 160 20 140 20 100C20 60 50 80 50 80Z" fill="#22c55e"/>
+    <rect x="45" y="160" width="10" height="40" fill="#8b5cf6"/>
+  </g>
+  
+  <g transform="translate(350, 180)">
+    <path d="M50 80C50 80 90 50 90 110C90 170 50 200 50 200C50 200 10 170 10 110C10 50 50 80 50 80Z" fill="#16a34a"/>
+    <rect x="45" y="200" width="10" height="50" fill="#8b5cf6"/>
+  </g>
+  
+  <g transform="translate(500, 190)">
+    <path d="M50 80C50 80 75 65 75 95C75 125 50 140 50 140C50 140 25 125 25 95C25 65 50 80 50 80Z" fill="#15803d"/>
+    <rect x="45" y="140" width="10" height="35" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Pomodoro Timer -->
+  <circle cx="400" cy="300" r="60" fill="#ef4444" stroke="#ffffff" stroke-width="4"/>
+  <text x="400" y="310" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" font-weight="bold">25:00</text>
+  
+  <!-- Coins -->
+  <circle cx="150" cy="350" r="15" fill="#fbbf24"/>
+  <text x="150" y="355" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LC</text>
+  
+  <circle cx="650" cy="320" r="15" fill="#fbbf24"/>
+  <text x="650" y="325" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="12" font-weight="bold">LC</text>
+  
+  <text x="400" y="450" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="16">Focus • Grow • Earn • Impact</text>
+</svg>

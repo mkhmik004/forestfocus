@@ -16,6 +16,7 @@ import {
 } from '@coinbase/onchainkit/identity';
 import { useAccount } from 'wagmi';
 import { useState, useEffect, useRef } from 'react';
+import { sdk } from '@farcaster/miniapp-sdk';
 import PomodoroTimer from './components/PomodoroTimer';
 import CommunityForest from './components/CommunityForest';
 import FarcasterShare from './components/FarcasterShare';
@@ -107,6 +108,20 @@ export default function App() {
       localStorage.setItem(`forestfocus-forest-${address}`, JSON.stringify(personalForest));
     }
   }, [personalForest, isConnected, address]);
+
+  // Initialize Farcaster MiniApp SDK
+  useEffect(() => {
+    const initializeMiniApp = async () => {
+      try {
+        // Hide splash screen once app is ready
+        await sdk.actions.ready();
+      } catch (error) {
+        console.log('Not running in Farcaster client:', error);
+      }
+    };
+    
+    initializeMiniApp();
+  }, []);
 
   const handleSessionComplete = () => {
     const newTotalSessions = userStats.totalSessions + 1;

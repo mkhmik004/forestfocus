@@ -1,0 +1,101 @@
+<svg width="375" height="812" viewBox="0 0 375 812" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mobile frame -->
+  <rect width="375" height="812" rx="25" fill="#000000"/>
+  <rect x="5" y="5" width="365" height="802" rx="20" fill="#0f172a"/>
+  
+  <!-- Status bar -->
+  <rect x="5" y="5" width="365" height="44" fill="#1e293b"/>
+  <text x="20" y="30" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">9:41</text>
+  <text x="350" y="30" text-anchor="end" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">100%</text>
+  
+  <!-- Header -->
+  <rect x="5" y="49" width="365" height="60" fill="#1e293b"/>
+  <text x="187.5" y="85" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="24" font-weight="bold">ForestFocus</text>
+  
+  <!-- Main content area -->
+  <rect x="15" y="119" width="345" height="678" rx="15" fill="#1e293b"/>
+  
+  <!-- Forest display -->
+  <g transform="translate(187.5, 200)">
+    <text x="0" y="-30" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="16">Your Forest</text>
+    
+    <!-- Main tree -->
+    <path d="M0 -20C0 -20 25 -35 25 -5C25 25 0 40 0 40C0 40 -25 25 -25 -5C-25 -35 0 -20 0 -20Z" fill="#22c55e"/>
+    <rect x="-3" y="40" width="6" height="35" fill="#8b5cf6"/>
+    
+    <!-- Side trees -->
+    <g transform="translate(-80, 20)">
+      <path d="M0 -15C0 -15 18 -25 18 -3C18 19 0 30 0 30C0 30 -18 19 -18 -3C-18 -25 0 -15 0 -15Z" fill="#16a34a"/>
+      <rect x="-2" y="30" width="4" height="25" fill="#8b5cf6"/>
+    </g>
+    
+    <g transform="translate(80, 15)">
+      <path d="M0 -18C0 -18 20 -28 20 -6C20 16 0 32 0 32C0 32 -20 16 -20 -6C-20 -28 0 -18 0 -18Z" fill="#15803d"/>
+      <rect x="-2" y="32" width="4" height="28" fill="#8b5cf6"/>
+    </g>
+    
+    <!-- Small seedlings -->
+    <g transform="translate(-120, 45)">
+      <path d="M0 -8C0 -8 8 -12 8 -2C8 8 0 12 0 12C0 12 -8 8 -8 -2C-8 -12 0 -8 0 -8Z" fill="#22c55e" opacity="0.7"/>
+      <rect x="-1" y="12" width="2" height="12" fill="#8b5cf6" opacity="0.7"/>
+    </g>
+    
+    <g transform="translate(120, 40)">
+      <path d="M0 -10C0 -10 10 -15 10 -3C10 9 0 15 0 15C0 15 -10 9 -10 -3C-10 -15 0 -10 0 -10Z" fill="#16a34a" opacity="0.6"/>
+      <rect x="-1" y="15" width="2" height="15" fill="#8b5cf6" opacity="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Stats section -->
+  <rect x="25" y="320" width="325" height="80" rx="10" fill="#374151"/>
+  <text x="187.5" y="340" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Today's Progress</text>
+  
+  <g transform="translate(80, 365)">
+    <circle cx="0" cy="0" r="15" fill="#fbbf24"/>
+    <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">LC</text>
+    <text x="0" y="25" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="12">125</text>
+  </g>
+  
+  <g transform="translate(187.5, 365)">
+    <circle cx="0" cy="0" r="15" fill="#22c55e"/>
+    <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">🌱</text>
+    <text x="0" y="25" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="12">3 Trees</text>
+  </g>
+  
+  <g transform="translate(295, 365)">
+    <circle cx="0" cy="0" r="15" fill="#ef4444"/>
+    <text x="0" y="5" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">🍅</text>
+    <text x="0" y="25" text-anchor="middle" fill="#ef4444" font-family="Arial, sans-serif" font-size="12">5 Sessions</text>
+  </g>
+  
+  <!-- Pomodoro timer -->
+  <rect x="25" y="420" width="325" height="120" rx="10" fill="#374151"/>
+  <text x="187.5" y="445" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="16">Focus Session</text>
+  
+  <circle cx="187.5" cy="490" r="35" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+  <text x="187.5" y="498" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">25:00</text>
+  
+  <text x="187.5" y="525" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12">Tap to start focusing</text>
+  
+  <!-- Action buttons -->
+  <rect x="25" y="560" width="325" height="50" rx="25" fill="#10b981"/>
+  <text x="187.5" y="590" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Start Focus Session</text>
+  
+  <rect x="25" y="620" width="158" height="40" rx="20" fill="#6366f1"/>
+  <text x="104" y="645" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">View Grove</text>
+  
+  <rect x="192" y="620" width="158" height="40" rx="20" fill="#8b5cf6"/>
+  <text x="271" y="645" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14">Share Progress</text>
+  
+  <!-- Bottom navigation -->
+  <rect x="5" y="757" width="365" height="50" fill="#1e293b"/>
+  <circle cx="93.75" cy="782" r="4" fill="#10b981"/>
+  <circle cx="187.5" cy="782" r="4" fill="#64748b"/>
+  <circle cx="281.25" cy="782" r="4" fill="#64748b"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="50" cy="150" r="2" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="325" cy="180" r="1" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="80" cy="280" r="1" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="300" cy="300" r="2" fill="#fbbf24" opacity="0.5"/>
+</svg>
