@@ -9,7 +9,7 @@
     "splashBackgroundColor": "#10b981",
     "webhookUrl": "https://forestfocus-umber.vercel.app/api/webhook",
     "subtitle": "ForestFocus",
-    "description": "ForestFocus is a productivity mini app on Base that turns your focus sessions into a growing digital forest. Each time you complete a study or work session, you earn LeafCoin and your trees mature, from seedlings to full-grown trees. You can grow your own forest, contribute to a shared community grove, and share your progress directly on Farcaster.",
+    "description": "ForestFocus is a productivity  Farcaster.",
     "primaryCategory": "productivity",
     "screenshotUrls": [
       "https://forestfocus-umber.vercel.app/screenshot1.png"
@@ -23,7 +23,7 @@
     ],
     "tagline": "Grow your productivity forest",
     "buttonTitle": "Open mini app",
-    "ogTitle": "ForestFocus – Productivity Forest",
+    "ogTitle": "ForestFocus ",
     "ogDescription": "Turn your focus sessions into a thriving digital forest on Base blockchain",
     "ogImageUrl": "https://forestfocus-umber.vercel.app/og-image.png",
     "castShareUrl": "https://warpcast.com/~/compose?text=Check+out+ForestFocus+%F0%9F%8C%B1+Turn+your+focus+into+a+digital+forest%21"
